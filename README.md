@@ -1,2 +1,2 @@
-# TYPD-open-data-
+# TYPD-open-data
 share our data and supply R code
