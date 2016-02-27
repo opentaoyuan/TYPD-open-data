@@ -22,9 +22,9 @@ method <- data %>%
   arrange(desc(count))
 
 
-write.csv(type,file = "type.csv",row.names = F)
-write.csv(vtype,file = "vtype.csv",row.names = F)
-write.csv(method,file = "method.csv",row.names = F)
+write.csv(type,file = "type.csv",row.names = F,fileEncoding="utf-8")
+write.csv(vtype,file = "vtype.csv",row.names = F,fileEncoding="utf-8")
+write.csv(method,file = "method.csv",row.names = F,fileEncoding="utf-8")
 
 type_month <- data %>%
   filter(year == 104) %>%
@@ -45,6 +45,6 @@ method_month <- data %>%
   arrange(desc(count))
 
 
-write.csv(type_month,file = "type_month.csv",row.names = F)
-write.csv(vtype_month,file = "vtype_month.csv",row.names = F)
-write.csv(method_month,file = "method_month.csv",row.names = F)
+write.csv(type_month,file = "type_month.csv",row.names = F,fileEncoding="utf-8")
+write.csv(vtype_month,file = "vtype_month.csv",row.names = F,fileEncoding="utf-8")
+write.csv(method_month,file = "method_month.csv",row.names = F,fileEncoding="utf-8")
