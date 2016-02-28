@@ -48,3 +48,12 @@ method_month <- data %>%
 write.csv(type_month,file = "type_month.csv",row.names = F,fileEncoding="utf-8")
 write.csv(vtype_month,file = "vtype_month.csv",row.names = F,fileEncoding="utf-8")
 write.csv(method_month,file = "method_month.csv",row.names = F,fileEncoding="utf-8")
+
+ggplot(type[1:10,],aes(x=type,y =count,fill = type))+
+  geom_bar(stat="identity")
+
+ggplot(vtype,aes(x=vehicle_type,y =count,fill = vehicle_type))+
+  geom_bar(stat="identity")
+
+ggplot(method,aes(x=method,y =count,fill = method))+
+  geom_bar(stat="identity")
