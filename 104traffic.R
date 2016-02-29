@@ -74,6 +74,11 @@ for(i in 1:5){
   top5 <- rbind(top5,X)
 }#重新取出數量前五種類的資料
 
+ggplot(top5,aes(x=type,y =count,fill = type))+
+  geom_boxplot(alpha = 0.7) +
+  ggtitle("104年交通違規盒鬚圖")
+#畫出盒鬚圖
+
 bar <- list()#產生空的list
 for(i in 1:12){
   X <- ungroup(top5) %>%
@@ -89,17 +94,13 @@ bar[[3]]
 bar[[4]]
 bar[[5]] 
 bar[[6]]
+bar[[7]]
 bar[[8]]
 bar[[9]]
 bar[[10]]
 bar[[11]]
 bar[[12]]
 #bars全部畫出
-
-ggplot(top5,aes(x=type,y =count,fill = type))+
-  geom_boxplot(alpha = 0.7) +
-  ggtitle("104年交通違規盒鬚圖")
-#畫出盒鬚圖
 
 trendline <- list() 
 for(i in 1:5){
@@ -117,3 +118,21 @@ trendline[[3]]
 trendline[[4]] 
 trendline[[5]] 
 #trendllines全部畫出
+
+month <- data %>%
+  filter(year == 104) %>%
+  group_by(month) %>%
+  summarise(count = sum(count)) %>%
+  arrange(desc(count))
+
+ggplot(month,aes(x=month,y =count))+
+  geom_text(aes(label = count),size = 3.5) +
+  geom_line(colour = "darkred",size = 1,alpha=0.8) +
+  scale_x_continuous(breaks = 1:12) +
+  ggtitle(paste("104年交通違規總數趨勢線"))
+
+ggplot(vtype_month,aes(x=month,y =count,colour=vehicle_type))+
+  geom_text(aes(label = count),size = 3.5) +
+  geom_line(size = 1,alpha=0.8) +
+  scale_x_continuous(breaks = 1:12) +
+  ggtitle(paste("104年交通違規車種趨勢線"))
