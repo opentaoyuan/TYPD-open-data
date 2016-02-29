@@ -52,29 +52,33 @@ write.csv(vtype_month,file = "vtype_month.csv",row.names = F,fileEncoding="utf-8
 write.csv(method_month,file = "method_month.csv",row.names = F,fileEncoding="utf-8")
 
 ggplot(type[1:10,],aes(x=type,y =count,fill = type))+
-  geom_bar(stat="identity")
+  geom_bar(stat="identity") +
+  ggtitle("104年交通違規舉發件數")
 
 ggplot(vtype,aes(x=vehicle_type,y =count,fill = vehicle_type))+
-  geom_bar(stat="identity")
+  geom_bar(stat="identity") +
+  ggtitle("104年交通違規舉發車種別件數")
 
 ggplot(method,aes(x=method,y =count,fill = method))+
-  geom_bar(stat="identity")
+  geom_bar(stat="identity") +
+  ggtitle("104年交通違規舉發方式別件數")
 
 bar <- list() 
 for(i in 1:12){
   X <- type_month %>%
     filter(month == i)
   bar[[i]]<- ggplot(X[1:10,],aes(x=type,y =count,fill = type))+
-    geom_bar(stat="identity",width=.5)
+    geom_bar(stat="identity",width=.5) +
+    ggtitle(paste("104年",i,"月交通違規舉發"))
 }
-bar[[1]] +  ggtitle(paste(1,"月交通違規舉發"))
-bar[[2]] +  ggtitle(paste(2,"月交通違規舉發"))
-bar[[3]] +  ggtitle(paste(3,"月交通違規舉發"))
-bar[[4]] +  ggtitle(paste(4,"月交通違規舉發"))
-bar[[5]] +  ggtitle(paste(5,"月交通違規舉發"))
-bar[[6]] +  ggtitle(paste(6,"月交通違規舉發"))
-bar[[8]] +  ggtitle(paste(8,"月交通違規舉發"))
-bar[[9]] +  ggtitle(paste(9,"月交通違規舉發"))
-bar[[10]] +  ggtitle(paste(10,"月交通違規舉發"))
-bar[[11]] +  ggtitle(paste(11,"月交通違規舉發"))
-bar[[12]] +  ggtitle(paste(12,"月交通違規舉發"))
+bar[[1]] 
+bar[[2]] 
+bar[[3]] 
+bar[[4]]
+bar[[5]] 
+bar[[6]]
+bar[[8]]
+bar[[9]]
+bar[[10]]
+bar[[11]]
+bar[[12]]
