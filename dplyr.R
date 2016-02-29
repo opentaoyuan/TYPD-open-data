@@ -1,5 +1,7 @@
 install.packages("dplyr")
+install.packages("ggplot2")
 library(dplyr)
+library(ggplot2)
 
 data <- read.csv("traffic.csv",fileEncoding="big5")
 
@@ -57,21 +59,22 @@ ggplot(vtype,aes(x=vehicle_type,y =count,fill = vehicle_type))+
 
 ggplot(method,aes(x=method,y =count,fill = method))+
   geom_bar(stat="identity")
-  
+
+bar <- list() 
 for(i in 1:12){
   X <- type_month %>%
     filter(month == i)
   bar[[i]]<- ggplot(X[1:10,],aes(x=type,y =count,fill = type))+
-    geom_bar(stat="identity")
+    geom_bar(stat="identity",width=.5)
 }
-  bar[[1]] +  ggtitle(paste(1,"月交通違規舉發"))
-  bar[[2]] +  ggtitle(paste(2,"月交通違規舉發"))
-  bar[[3]] +  ggtitle(paste(3,"月交通違規舉發"))
-  bar[[4]] +  ggtitle(paste(4,"月交通違規舉發"))
-  bar[[5]] +  ggtitle(paste(5,"月交通違規舉發"))
-  bar[[6]] +  ggtitle(paste(6,"月交通違規舉發"))
-  bar[[8]] +  ggtitle(paste(8,"月交通違規舉發"))
-  bar[[9]] +  ggtitle(paste(9,"月交通違規舉發"))
-  bar[[10]] +  ggtitle(paste(10,"月交通違規舉發"))
-  bar[[11]] +  ggtitle(paste(11,"月交通違規舉發"))
-  bar[[12]] +  ggtitle(paste(12,"月交通違規舉發"))
+bar[[1]] +  ggtitle(paste(1,"月交通違規舉發"))
+bar[[2]] +  ggtitle(paste(2,"月交通違規舉發"))
+bar[[3]] +  ggtitle(paste(3,"月交通違規舉發"))
+bar[[4]] +  ggtitle(paste(4,"月交通違規舉發"))
+bar[[5]] +  ggtitle(paste(5,"月交通違規舉發"))
+bar[[6]] +  ggtitle(paste(6,"月交通違規舉發"))
+bar[[8]] +  ggtitle(paste(8,"月交通違規舉發"))
+bar[[9]] +  ggtitle(paste(9,"月交通違規舉發"))
+bar[[10]] +  ggtitle(paste(10,"月交通違規舉發"))
+bar[[11]] +  ggtitle(paste(11,"月交通違規舉發"))
+bar[[12]] +  ggtitle(paste(12,"月交通違規舉發"))
