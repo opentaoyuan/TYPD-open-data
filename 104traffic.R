@@ -105,7 +105,7 @@ for(i in 1:5){
     geom_line(colour = "darkred",size = 1,alpha=0.8) +
     scale_x_continuous(breaks = 1:12) +
     theme_bw() +
-    ggtitle(paste("104年",as.character(top5type[i,]),"趨勢?線"))
+    ggtitle(paste("104年",as.character(top5type[i,]),"趨勢線"))
   print(trendline[[i]] )
 }#產生前5種類的trendllines
 
