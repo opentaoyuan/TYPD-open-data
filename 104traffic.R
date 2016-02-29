@@ -128,6 +128,13 @@ ggplot(vtype_month,aes(x=month,y =count,colour=vehicle_type))+
   scale_x_continuous(breaks = 1:12) +
   theme_bw() +
   ggtitle(paste("104年交通違規車種趨勢線"))
+  
+  ggplot(method_month,aes(x=month,y =count,colour=method))+
+  geom_text(aes(label = count),size = 3.5) +
+  geom_line(size = 1,alpha=0.8) +
+  scale_x_continuous(breaks = 1:12) +
+  theme_bw() +
+  ggtitle(paste("104年交通違規舉發方式趨勢線"))
 
 ggplot(ungroup(top5),aes(x=factor(month), y=factor(type), fill=count)) +
  geom_tile(color="white", size=0.1) +
